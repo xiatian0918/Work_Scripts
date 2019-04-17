@@ -16,7 +16,7 @@ a=`echo $user |grep [^a-zA-Z] |wc -l`
 
 useradd $user
 
-su $user -s /bin/sh -c "ssh-keygen -t rsa -P 'Toprs!@#123' -f /home/${user}/${user}_rsa"
+su $user -s /bin/sh -c "ssh-keygen -t rsa -P '*******!@#123' -f /home/${user}/${user}_rsa"
 su $user -s /bin/sh -c "mkdir -p /home/$user/.ssh -p"
 su $user -s /bin/sh -c "cat /home/$user/${user}_rsa.pub >> /home/$user/.ssh/authorized_keys"
 su $user -s /bin/sh -c "chmod 600 /home/$user/.ssh/authorized_keys"

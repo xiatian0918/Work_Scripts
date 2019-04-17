@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #coding:utf-8
 import requests,json
-url="http://api.toprs.cloud.com/user/login/"
+url="http://api.*******.*******.com/user/login/"
 headers={'Content-Type':'application/json;charset=UTF-8'}
 request_param={
     "username":"测试001",

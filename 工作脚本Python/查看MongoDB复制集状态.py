@@ -3,7 +3,7 @@
 import paramiko
 
 shell = "/bin/python /usr/lib/nagios/plugins/nagios-plugin-mongodb/check_mongodb.py \
-         -H 192.168.0.59 -A replset_state -P 27019"
+         -H *******.59 -A replset_state -P 27019"
 
 def sshclient_execmd(hostname, port, username, password, execmd):
     paramiko.util.log_to_file("paramiko.log")
@@ -21,7 +21,7 @@ def sshclient_execmd(hostname, port, username, password, execmd):
 
 
 def main():
-    hostname = '192.168.0.64'
+    hostname = '*******.64'
     port = 22
     username = 'xiatian'
     password = '123456'

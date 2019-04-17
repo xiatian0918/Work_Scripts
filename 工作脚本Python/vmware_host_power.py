@@ -1,7 +1,7 @@
 import paramiko
 
 hostip = input("请输入要修改电源状态的虚拟机IP地址:")
-state = input("请输入要修改的电源状态(stop|reset|start):")
+state = input("请输入要修改的电源状态(s*******|reset|start):")
 shell = "/bin/sh /home/xiatian/vmware_api/vmware_host_power.sh %s %s" %(hostip,state)
 
 def sshclient_execmd(hostname, port, username, password, execmd):
@@ -21,7 +21,7 @@ def sshclient_execmd(hostname, port, username, password, execmd):
 
 
 def main():
-    hostname = '192.168.0.62'
+    hostname = '*******.62'
     port = 22
     username = 'xiatian'
     password = '123456'

@@ -4,7 +4,7 @@
 #OS:Centos 7
 
 rpm -ivh https://mirrors.aliyun.com/epel/epel-release-latest-7.noarch.rpm
-systemctl stop firewalld
+systemctl s******* firewalld
 setenforce 0
 
 yum -y groupinstall "Development tools"

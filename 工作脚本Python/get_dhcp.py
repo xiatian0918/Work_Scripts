@@ -5,8 +5,8 @@
 import winrm
 import paramiko
 shell = "/bin/sh /data/scripts/get_dhcp.sh"
-wintest = winrm.Session('http://192.168.0.85:5985/wsman',auth=('administrator','Toprs!@#123'))
-result = wintest.run_cmd("netsh dhcp server 192.168.0.85 scope 192.168.0.0 show clients")
+wintest = winrm.Session('http://*******.85:5985/wsman',auth=('*******istrator','*******!@#123'))
+result = wintest.run_cmd("netsh dhcp server *******.85 scope *******.0 show clients")
 
 f = open("Z:\\system\\show_dhcp\\out.txt", "w")
 print(result.std_out.decode().strip(),file=f)
@@ -24,10 +24,10 @@ def sshclient_execmd(hostname, port, username, password, execmd):
     s.close()
 
 def main():
-    hostname = '192.168.0.62'
+    hostname = '*******.62'
     port = 22
     username = 'root'
-    password = 'Toprs!@#123'
+    password = '*******!@#123'
     execmd = shell
     sshclient_execmd(hostname, port, username, password, execmd)
 

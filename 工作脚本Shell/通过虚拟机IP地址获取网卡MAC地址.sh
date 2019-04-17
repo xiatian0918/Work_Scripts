@@ -21,5 +21,5 @@ vm_nic2=$(echo $vm_nic|awk -F\[ '{print $2}'|cut -d':' -f2|awk -F\} '{print $1}'
 /usr/bin/php  /root/session.php >/tmp/session2_id.txt
 session2=$(tail -1 /tmp/session2_id.txt)
 
-curl -ksX GET --header 'Accept: application/json' --header "vmware-api-session-id: $session2" "https://192.168.0.24/rest/vcenter/vm/${vm_mm2}/hardware/ethernet/${vm_nic2}"|jq .|grep mac_address|awk -F\": '{print $2}'|awk -F\, '{print $1}'|awk -F\" '{print $2}'
+curl -ksX GET --header 'Accept: application/json' --header "vmware-api-session-id: $session2" "https://*******/rest/vcenter/vm/${vm_mm2}/hardware/ethernet/${vm_nic2}"|jq .|grep mac_address|awk -F\": '{print $2}'|awk -F\, '{print $1}'|awk -F\" '{print $2}'
 

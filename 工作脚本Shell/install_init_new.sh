@@ -7,14 +7,14 @@ yum install libgcrypt-devel lrzsz perl-DBI perl-libwww-perl net-snmp-perl  opens
 ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 cat <<EOF
--------------num 2 stop iptables with selinux---------------
+-------------num 2 s******* iptables with selinux---------------
 EOF
 sed -i '7 c SELINUX=disabled' /etc/selinux/config
 setenforce 0
 firewall=`cat /etc/redhat-release |awk '{print $4}'|awk -F "." '{print $1}'`
-[ ${firewall} -eq 7 ] && systemctl stop firewalld.service && systemctl disable firewalld.service
+[ ${firewall} -eq 7 ] && systemctl s******* firewalld.service && systemctl disable firewalld.service
 #ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime || {
-service iptables stop
+service iptables s*******
 chkconfig iptables off
 }
 

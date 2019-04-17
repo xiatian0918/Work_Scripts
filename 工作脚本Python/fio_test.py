@@ -7,7 +7,7 @@ import os
 for rw in ("read","write","ranread","ranwrite"):
 
     for numjobs in ("4","8","16"):
-        command = "fio -name=toprs --bs=1M" + \
+        command = "fio -name=******* --bs=1M" + \
                   " --ioengine=windowsaio --iodepth=128 --size=10M" + \
                   " --direct=1 --rw=" + str(rw) + " --filename=C:" + \
                   " --numjobs=" + str(numjobs) + " --time_based" + \

@@ -9,4 +9,4 @@ if [ -z $vm_name ];then
         exit 2
 fi
 
-curl -ksX DELETE --header 'Accept: application/json' --header "vmware-api-session-id: $session2" "https://192.168.0.24/rest/vcenter/vm/${vm_name}"|jq .
+curl -ksX DELETE --header 'Accept: application/json' --header "vmware-api-session-id: $session2" "https://*******/rest/vcenter/vm/${vm_name}"|jq .

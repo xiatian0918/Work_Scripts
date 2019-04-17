@@ -52,10 +52,10 @@ systemctl restart named.service
 
 yum install -y bind-utils
 
-#stop firewalld
+#s******* firewalld
 
 systemctl disable firewalld
-systemctl stop firewalld
+systemctl s******* firewalld
 
 [root@localhost named]# cat /etc/postfix/main.cf |egrep -v "^#|^$"|egrep "in|my"
 command_directory = /usr/sbin

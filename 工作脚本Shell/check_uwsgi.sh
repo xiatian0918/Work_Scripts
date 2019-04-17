@@ -1,5 +1,5 @@
 #!/bin/sh
-#this is about uwsgi service start or stop
+#this is about uwsgi service start or s*******
 #author xiatian
 
 case $1 in
@@ -19,7 +19,7 @@ start)
 	[ $c -ne 0 ] && echo "服务:uwsgi 启动成功"
 ;;
 
-stop)
+s*******)
 	d=`ps aux|grep uwsgi.ini|grep -v grep|awk '{print $2}'|head -1`
         kill -9 $d
 	e=`ps aux|grep uwsgi.ini|grep -v grep|wc -l`
@@ -35,7 +35,7 @@ restart)
 ;;
 
 *)
-	echo "请输入参数，参数可选择(start|status|stop|restart)"
+	echo "请输入参数，参数可选择(start|status|s*******|restart)"
 ;;
 
 esac

@@ -2,7 +2,7 @@
 #author:xiatian
 
 cd /usr/local/src/
-wget http://192.168.0.62/tools/iperf-3.1.3-source.tar.gz
+wget http://*******.62/tools/iperf-3.1.3-source.tar.gz
 tar -zxf iperf-3.1.3-source.tar.gz
 cd iperf-3.1.3
 ./configure

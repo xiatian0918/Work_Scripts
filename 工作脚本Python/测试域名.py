@@ -12,7 +12,7 @@ session.verify = False
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Connect to a vCenter Server using username and password
-vsphere_client = create_vsphere_client(server='192.168.0.24', username='administrator@vsphere.local', password='Toprs!@#123', session=session)
+vsphere_client = create_vsphere_client(server='*******', username='*******istrator@vsphere.local', password='*******!@#123', session=session)
 
 # List all VMs inside the vCenter Server
 vsphere_client.vcenter.VM.list()

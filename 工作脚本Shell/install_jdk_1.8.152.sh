@@ -1,6 +1,6 @@
 #!/bin/bash
 cd /usr/local/src/
-wget http://192.168.0.62/tools/jdk-8u152-linux-x64.tar.gz
+wget http://*******.62/tools/jdk-8u152-linux-x64.tar.gz
 tar -zxvf jdk-8u152-linux-x64.tar.gz
 mv jdk1.8.0_152/ /usr/local/
 echo "JAVA_HOME=/usr/local/jdk1.8.0_152" >> /etc/profile

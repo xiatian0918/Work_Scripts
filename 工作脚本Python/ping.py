@@ -50,6 +50,6 @@ def copy_module(conn, inpath, outpath):
 
 if __name__ == '__main__':
 
-    print(json.dumps(excutor('192.168.0.64', 'ls', ' -l'), indent=4, sort_keys=True))
-   print(copy_module(connect('192.168.0.64'), 'kel.txt', '/root/kel.1.txt'))
+    print(json.dumps(excutor('*******.64', 'ls', ' -l'), indent=4, sort_keys=True))
+   print(copy_module(connect('*******.64'), 'kel.txt', '/root/kel.1.txt'))
    exec_commands(connect('192.168.1.165'), 'chmod +x %s' % '/root/kel.1.txt')

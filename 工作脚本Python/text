@@ -1,5 +1,5 @@
 
-192.168.0.21
+*******.21
 -----------------------------
 vSwitch0
    Name: vSwitch0
@@ -31,7 +31,7 @@ vSwitch1
    Uplinks: vmnic4, vmnic1000402
    Portgroups: vMotion
 
-192.168.0.22
+*******.22
 -----------------------------
 vSwitch0
    Name: vSwitch0
@@ -63,7 +63,7 @@ vSwitch1
    Uplinks: vmnic4, vmnic1000402
    Portgroups: vMotion
 
-192.168.0.23
+*******.23
 -----------------------------
 vSwitch0
    Name: vSwitch0

@@ -3,7 +3,7 @@
 /usr/bin/php  /root/session.php >/tmp/session2_id.txt
 session2=$(tail -1 /tmp/session2_id.txt)
 
-curl -ksX GET --header "Accept: application/json" --header "vmware-api-session-id:${session2}" "https://192.168.0.24/rest/vcenter/vm"|jq . >/tmp/vmware_host.txt
+curl -ksX GET --header "Accept: application/json" --header "vmware-api-session-id:${session2}" "https://*******/rest/vcenter/vm"|jq . >/tmp/vmware_host.txt
 
 cd /tmp/
 
@@ -28,7 +28,7 @@ fi
 
 
 
-a=$(curl -ksX PATCH --header "Content-Type: application/json" --header "Accept: application/json" --header "vmware-api-session-id:"$session2""  -d '{"spec": { "count": "'"$core"'", "hot_add_enabled": false, "hot_remove_enabled": false, "cores_per_socket": 1}}' "https://192.168.0.24/rest/vcenter/vm/"$vm_name"/hardware/cpu"|jq .)
+a=$(curl -ksX PATCH --header "Content-Type: application/json" --header "Accept: application/json" --header "vmware-api-session-id:"$session2""  -d '{"spec": { "count": "'"$core"'", "hot_add_enabled": false, "hot_remove_enabled": false, "cores_per_socket": 1}}' "https://*******/rest/vcenter/vm/"$vm_name"/hardware/cpu"|jq .)
 
 
 if [ -z $a ];then

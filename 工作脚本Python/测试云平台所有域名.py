@@ -4,9 +4,9 @@
 
 import socket
 
-domain = ['web.toprs.cloud.com','api.toprs.cloud.com','down.toprs.cloud.com', \
-           'monitor.toprs.cloud.com','git.toprs.cloud.com','redmine.toprs.cloud.com', \
-           'log.toprs.cloud.com','network.toprs.cloud.com','mail.toprs.cloud.com','images.toprs.cloud.com']
+domain = ['web.*******.*******.com','api.*******.*******.com','down.*******.*******.com', \
+           'monitor.*******.*******.com','git.*******.*******.com','redmine.*******.*******.com', \
+           'log.*******.*******.com','network.*******.*******.com','mail.*******.*******.com','images.*******.*******.com']
 
 for host in domain:
      ip = socket.gethostbyname(host)
@@ -26,8 +26,8 @@ if not folder:
     os.makedirs(r"E:\\xiatian_test")
 
 f = open("E:\\xiatian_test\\域名.txt",'w',encoding="utf-8")
-f.write("web.toprs.cloud.com\ndown.toprs.cloud.com\napi.toprs.cloud.com\n\
-monitor.toprs.cloud.com\ngit.toprs.cloud.com\nredmine.toprs.cloud.com\nlog.toprs.cloud.com")
+f.write("web.*******.*******.com\ndown.*******.*******.com\napi.*******.*******.com\n\
+monitor.*******.*******.com\ngit.*******.*******.com\nredmine.*******.*******.com\nlog.*******.*******.com")
 f.close()
 c = open("E:\\xiatian_test\\域名.txt","r")
 

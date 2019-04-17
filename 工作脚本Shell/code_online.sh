@@ -6,7 +6,7 @@
 cd /data/code/
 \cp develop develop_`date +"%m.%d"` -a
 cd /data/code/develop/
-git pull git@192.168.0.55:root/develop.git master
+git pull git@*******.55:root/develop.git master
 
 rm -rf /home/xiatian/PycharmProjects/develop
 
@@ -16,7 +16,7 @@ rm -rf /home/xiatian/PycharmProjects/develop
 /usr/bin/pkill -9 uwsgi
 /usr/bin/pkill -9 nginx
 
-cd /home/xiatian/PycharmProjects/develop/Toprs/topr/
+cd /home/xiatian/PycharmProjects/develop/*******/*******r/
 
 nohup python3 manage.py runserver >/dev/null 2>&1 &
 

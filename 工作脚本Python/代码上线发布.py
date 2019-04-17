@@ -3,7 +3,7 @@
 # author: xiatian
 
 import paramiko
-shell = "ssh 192.168.0.61 '/bin/sh /root/code_online.sh'"
+shell = "ssh *******.61 '/bin/sh /root/code_online.sh'"
 
 def sshclient_execmd(hostname, port, username, password, execmd):
     #paramiko.util.log_to_file("paramiko.log")
@@ -21,10 +21,10 @@ def sshclient_execmd(hostname, port, username, password, execmd):
 
 
 def main():
-    hostname = '192.168.0.62'
+    hostname = '*******.62'
     port = 22
     username = 'root'
-    password = 'Toprs!@#123'
+    password = '*******!@#123'
     execmd = shell
 
 

@@ -24,10 +24,10 @@ def sshclient_execmd(hostname, port, username, password, execmd):
 
 
 def main():
-    hostname = '192.168.0.62'
+    hostname = '*******.62'
     port = 22
     username = 'root'
-    password = 'Toprs!@#123'
+    password = '*******!@#123'
     execmd = shell
 
 

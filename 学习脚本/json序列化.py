@@ -3,10 +3,10 @@
 #导入模块
 from pymongo import MongoClient
 #建立Mongodb数据库连接
-client=MongoClient('192.168.0.59',27019)
+client=MongoClient('*******.59',27019)
 client.rs.status()
 #test为数据库
-#db=client.toprs
+#db=client.*******
 #test为集合，相当于表名
 #collection=db.haha
 #插入集合数据

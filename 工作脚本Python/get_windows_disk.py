@@ -4,7 +4,7 @@
 
 import os
 
-#for a in ('192.168.0.81','192.168.0.82','192.168.0.83','192.168.0.84'):
+#for a in ('*******.81','*******.82','*******.83','*******.84'):
  # for i in range(50,91):
  #     vol = chr(i) + ':'
  #     if os.path.isdir(vol):
@@ -18,4 +18,4 @@ def sys_version(ipaddress, user, password):
       if os.path.isdir(vol):
           print(vol)
 if __name__ == '__main__':
-  sys_version(ipaddress="192.168.0.82", user="administrator", password="Toprs!@#123")
+  sys_version(ipaddress="*******.82", user="*******istrator", password="*******!@#123")

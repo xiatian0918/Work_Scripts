@@ -15,8 +15,8 @@ if not folder:
     os.makedirs(r"E:\\xiatian_test")
 
 f = open("E:\\xiatian_test\\域名.txt",'w',encoding="utf-8")
-f.write("web.toprs.cloud.com\ndown.toprs.cloud.com\napi.toprs.cloud.com\n\
-monitor.toprs.cloud.com\ngit.toprs.cloud.com\nredmine.toprs.cloud.com")
+f.write("web.*******.*******.com\ndown.*******.*******.com\napi.*******.*******.com\n\
+monitor.*******.*******.com\ngit.*******.*******.com\nredmine.*******.*******.com")
 f.close()
 c = open("E:\\xiatian_test\\域名.txt","r")
 

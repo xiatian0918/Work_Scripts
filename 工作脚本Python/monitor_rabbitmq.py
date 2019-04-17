@@ -4,11 +4,11 @@ import requests
 import json
 import os
 
-zbx_srv = '192.168.0.58'
+zbx_srv = '*******.58'
 hostname = 'Rabbitmq-server'
-url = 'http://192.168.0.58:15672/api/queues'
+url = 'http://*******.58:15672/api/queues'
 
-r = requests.get(url, auth=("toprs", "toprs"),  timeout=5)
+r = requests.get(url, auth=("*******", "*******"),  timeout=5)
 parsed = json.loads(r.content)
 
 for i in parsed:

@@ -20,7 +20,7 @@ nic_configs = wmi.WMI().Win32_NetworkAdapterConfiguration(IPEnabled=True)
 nic = nic_configs[0]
 
 # IP address, subnetmask and gateway values should be unicode objects
-ip = u'192.168.0.96'
+ip = u'*******.96'
 subnetmask = u'255.255.255.0'
 gateway = u'192.168.1.1'
 

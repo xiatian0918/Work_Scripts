@@ -3,10 +3,10 @@
 # author: xiatian
 
 import winrm
-#a = ['192.168.0.91','192.168.0.92','192.168.0.97']
-a = "192.168.0.91"
+#a = ['*******.91','*******.92','*******.97']
+a = "*******.91"
 #for i in a:
-wintest = winrm.Session('http://%s:5985/wsman' %(a),auth=('administrator','Toprs!@#123'))
+wintest = winrm.Session('http://%s:5985/wsman' %(a),auth=('*******istrator','*******!@#123'))
 result = wintest.run_cmd("dir")
 b = result.status_code
 print(b)

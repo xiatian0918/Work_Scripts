@@ -4,7 +4,7 @@
 
 '''
 import os
-os.system("wget -P E:\自动化脚本文件\ http://192.168.0.62/shell/fio.test.sh")'''
+os.system("wget -P E:\自动化脚本文件\ http://*******.62/shell/fio.test.sh")'''
 
 '''
 import xlwt

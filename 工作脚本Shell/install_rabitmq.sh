@@ -14,8 +14,8 @@ cd /etc/rabbitmq/
 cp rabbitmq.config.example rabbitmq.config
 rabbitmq-plugins enable rabbitmq_management
 service rabbitmq-server restart
-rabbitmqctl add_user toprs 123456789
-rabbitmqctl set_user_tags toprs administrator
-rabbitmqctl set_permissions -p "/" toprs ".*" ".*" ".*"
+rabbitmqctl add_user ******* 123456789
+rabbitmqctl set_user_tags ******* *******istrator
+rabbitmqctl set_permissions -p "/" ******* ".*" ".*" ".*"
 rabbitmqctl list_users
 netstat -tlnp|grep 15672

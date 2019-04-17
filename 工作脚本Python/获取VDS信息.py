@@ -4,7 +4,7 @@
 
 import paramiko
 
-#hostname = ['192.168.0.21','192.168.0.22','192.168.0.23']
+#hostname = ['*******.21','*******.22','*******.23']
 def shell_chmod():
     shell = "esxcli network  vswitch dvs vmware list"
     return shell
@@ -29,7 +29,7 @@ def main1(hostname):
     hostname =hostname
     port = 22
     username = 'root'
-    password = 'Toprs!@#123'
+    password = '*******!@#123'
     shell=shell_chmod()
     execmd = shell
 
@@ -39,7 +39,7 @@ def main1(hostname):
         f.write('\n'+hostname+'\n'+'-----------------------------'+'\n')
         f.write(result)
 def main():
-    for i in  ['192.168.0.21','192.168.0.22','192.168.0.23']:
+    for i in  ['*******.21','*******.22','*******.23']:
         main1(i)
 
 

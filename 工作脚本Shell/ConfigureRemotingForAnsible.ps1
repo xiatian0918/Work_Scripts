@@ -222,17 +222,17 @@ Trap
     $_
     Exit 1
 }
-$ErrorActionPreference = "Stop"
+$ErrorActionPreference = "S*******"
 
 # Get the ID and security principal of the current user account
 $myWindowsID=[System.Security.Principal.WindowsIdentity]::GetCurrent()
 $myWindowsPrincipal=new-object System.Security.Principal.WindowsPrincipal($myWindowsID)
 
 # Get the security principal for the Administrator role
-$adminRole=[System.Security.Principal.WindowsBuiltInRole]::Administrator
+$*******Role=[System.Security.Principal.WindowsBuiltInRole]::Administrator
 
 # Check to see if we are currently running "as Administrator"
-if (-Not $myWindowsPrincipal.IsInRole($adminRole))
+if (-Not $myWindowsPrincipal.IsInRole($*******Role))
 {
     Write-Output "ERROR: You need elevated Administrator privileges in order to run this script."
     Write-Output "       Start Windows PowerShell by using the Run as Administrator option."
@@ -270,7 +270,7 @@ ElseIf ((Get-Service "WinRM").Status -ne "Running")
     Set-Service -Name "WinRM" -StartupType Automatic
     Write-Log "Set WinRM service to start automatically on boot."
     Write-Verbose "Starting WinRM service."
-    Start-Service -Name "WinRM" -ErrorAction Stop
+    Start-Service -Name "WinRM" -ErrorAction S*******
     Write-Log "Started WinRM service."
 
 }
@@ -280,12 +280,12 @@ If (!(Get-PSSessionConfiguration -Verbose:$false) -or (!(Get-ChildItem WSMan:\lo
 {
   If ($SkipNetworkProfileCheck) {
     Write-Verbose "Enabling PS Remoting without checking Network profile."
-    Enable-PSRemoting -SkipNetworkProfileCheck -Force -ErrorAction Stop
+    Enable-PSRemoting -SkipNetworkProfileCheck -Force -ErrorAction S*******
     Write-Log "Enabled PS Remoting without checking Network profile."
   }
   Else {
     Write-Verbose "Enabling PS Remoting."
-    Enable-PSRemoting -Force -ErrorAction Stop
+    Enable-PSRemoting -Force -ErrorAction S*******
     Write-Log "Enabled PS Remoting."
   }
 }

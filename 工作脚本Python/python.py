@@ -6,7 +6,7 @@ import urllib2
 import json
 
 def http_put():
-    url='https://192.168.0.24/rest/vcenter/vm/vm-76/hardware/cpu'
+    url='https://*******/rest/vcenter/vm/vm-76/hardware/cpu'
     values={
         "spec": { \
         "count": 17, \
