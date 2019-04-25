@@ -7,7 +7,7 @@ class Dog:
         self.name = name
 
     def bulk(self):
-        print("%s: wang wang wang" %(self.name))
+        print("%s: 汪~~汪~~汪~~" %(self.name))
 
 d1 = Dog("陈世美")
 d2 = Dog("陈三炮")
