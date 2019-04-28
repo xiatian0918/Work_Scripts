@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
 # author: xiatian
-
+#__author__ = xiatian
 from smb.SMBConnection import SMBConnection
 def get_script_file():
     conn = SMBConnection('admin', 'password', 'HotXia-PC', '\\192.168.0.29\Toprs-rd3-60T')
