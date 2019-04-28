@@ -24,6 +24,10 @@ class People:
         print("%s is sleeping..." % self.name)
 
 class  Man(People):
+    def __init__(self,name,age):
+        super(Man,self).__init__(name,age)
+
+        self.money = name
 
     def xiao(self):
         print("%s is xiaoing .... 20s ...done" %self.name)
