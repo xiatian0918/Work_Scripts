@@ -15,13 +15,19 @@ class SchoolMember(object):
 
 
 class SchoolMember(object):
-    def __init__(self,name,age,sex,):
+    def __init__(self,name,age,sex):
         self.name = name
         self.age = age
         self.sex = sex
 
     def tell(self):
-        pass
+        print('''
+               --- info of Teacher:%s ---
+                         Name:%s
+                         Age:%s
+                         Sex:%s
+               ''' % (self.name, self.name, self.age, self.sex)
+              )
 
 class Teacher(SchoolMember):
     def __init__(self,name,age,sex,salary,course):
@@ -42,5 +48,9 @@ class Teacher(SchoolMember):
 
         def teach(self):
             print("%s is teaching cource [%s]" %(self.name,self.course))
+
+
+d = SchoolMember("xiatian",28,"M")
+d.tell()
 
 
