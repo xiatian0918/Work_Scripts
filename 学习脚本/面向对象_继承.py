@@ -28,6 +28,19 @@ class  Man(People):
     def xiao(self):
         print("%s is xiaoing .... 20s ...done" %self.name)
 
+    def sleep(self):
+        People.sleep(self)
+        print("man is sleeping")
+
+class Woman(People):
+    def get_birth(self):
+        print("%s is born a baby...." % self.name)
+
 m1 = Man("HotXia",28)
 m1.eat()
 m1.xiao()
+m1.sleep()
+
+w1 = Woman("ZhangWuJi",26)
+w1.get_birth()
+# w1.xiao()
