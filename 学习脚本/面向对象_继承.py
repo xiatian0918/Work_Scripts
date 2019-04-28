@@ -8,7 +8,8 @@
 #         self.role = role
 #         self.weapon = weapon
 
-class People:
+#class People: 经典类
+class People(object):  #新式类
 
     def __init__(self,name,age):
         self.name = name
@@ -48,3 +49,8 @@ m1.sleep()
 w1 = Woman("ZhangWuJi",26)
 w1.get_birth()
 # w1.xiao()
+
+class Relation(object):
+    def make_friends(self,obj):
+        print("%s is making friends with %s" % (self.name,object))
+        self.friends.append(obj)
