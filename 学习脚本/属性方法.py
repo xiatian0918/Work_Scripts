@@ -39,9 +39,15 @@ def __init__(self,name,age):
 Foo = type('Foo', (object,), {'func':func,
                        '__init__':__init__})
 
-f = Foo('chen',34)
-f.func()
-print(type(Foo))
+# f = Foo('chen',34)
+# f.func()
+# print(type(Foo))
+
+def f():
+    a = print("hehe")
+    return a
+
+f()
 
 
 
