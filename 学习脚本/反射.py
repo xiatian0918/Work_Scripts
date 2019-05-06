@@ -24,5 +24,9 @@ if hasattr(d,choice):
 else:
     # setattr(d,choice,bulk)
     # d.talk(d)
-    setattr(d,choice,33)
+    setattr(d,choice,None)
     print( getattr(d,choice))
+
+
+
+
