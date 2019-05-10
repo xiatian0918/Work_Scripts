@@ -18,8 +18,8 @@ t2.start()
 # run("t1")
 # run("t2")
 
-# def main():
-#     print("hehe")
-#
-# if __name__ == '__main__':
-#      main()
+def main():
+    print("hehe")
+
+if __name__ == '__main__':
+     main()
