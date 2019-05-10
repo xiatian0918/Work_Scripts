@@ -8,7 +8,7 @@ def run(name):
     print("%s run thread...." %name)
 
 t_res = []
-for i in range(10):
+for i in range(5):
     t = threading.Thread(target=run,args=('xiatian',))
     t.start()
     t_res.append(t)
