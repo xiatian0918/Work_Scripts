@@ -12,7 +12,7 @@ def thread_run():
 def run(name):
     time.sleep(2)
     print('hello',name)
-    t = threading.Thread(target=run,args=("ciatian",))
+    t = threading.Thread(target=run,args=("xiatian",))
     t.start()
 
 if __name__ == '__main__':
