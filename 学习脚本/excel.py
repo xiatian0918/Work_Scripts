@@ -2,11 +2,11 @@
 #-*- coding:utf-8 -*-
 # author: xiatian
 
-'''
-import os
-os.system("wget -P E:\自动化脚本文件\ http://192.168.0.62/shell/fio.test.sh")'''
 
-'''
+import os
+#os.system("wget -P E:\自动化脚本文件\ http://192.168.0.62/shell/fio.test.sh")
+
+
 import xlwt
 #设置表格样式
 def set_style(name,height,bold=False):
@@ -42,4 +42,4 @@ def write_excel():
 if __name__ == '__main__':
     write_excel()
 
-'''
+
