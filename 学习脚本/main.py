@@ -2,12 +2,16 @@
 #-*- coding:utf-8 -*-
 # author: xiatian
 
-from 学习脚本 import module_test
+def main():
+    from auto_scripts.学习脚本 import module_test
 
-print(module_test.say_hello())
+    print(module_test.say_hello())
 
-module_test.logger()
+    module_test.logger()
 
-from 学习脚本.module_test import name
+    from auto_scripts.学习脚本.module_test import name
 
-print(name)
+    print(name)
+
+if __name__ == '__main__':
+    main()
