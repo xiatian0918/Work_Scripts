@@ -2,6 +2,9 @@
 #-*- coding:utf-8 -*-
 # author: xiatian
 
+
+#导入指定路径模块
+
 def main():
     from auto_scripts.学习脚本 import module_test
 
