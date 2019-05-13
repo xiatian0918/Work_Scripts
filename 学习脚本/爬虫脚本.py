@@ -16,7 +16,7 @@ def f(url):
     f.close()
     print('%d bytes received from %s.' % (len(data), url))
 
-f('http://api.stat2.cibn.cc/terminfo/index')
+f('http://192.168.0.61')
 
 # urls = ['https://www.python.org/',
 #         'https://www.yahoo.com/',
