@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
 # author: xiatian
+'''如何检查mongo主从关系端口脚本'''
 
 import paramiko
 shell = "ssh 192.168.0.59 '/bin/sh /data/scripts/check_mongo_rep.sh'"
