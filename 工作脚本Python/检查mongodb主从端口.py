@@ -4,7 +4,7 @@
 '''如何检查mongo主从关系端口脚本'''
 
 import paramiko
-shell = "ssh 192.168.0.59 '/bin/sh /data/scripts/check_mongo_rep.sh'"
+shell = "/bin/sh /data/scripts/check_mongo_rep.sh"
 def sshclient_execmd(hostname, port, username, password, execmd):
     s = paramiko.SSHClient()
     s.set_missing_host_key_policy(paramiko.AutoAddPolicy())
