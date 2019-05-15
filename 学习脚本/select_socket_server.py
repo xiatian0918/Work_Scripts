@@ -10,9 +10,10 @@ server.listen(1000)
 
 server.setblocking(False) #不阻塞
 
-inputs = []
+inputs = [server,]
 outputs = []
 
-select.select(inputs, outputs, inputs)
+readable , writeable, exceptional = select.select(inputs, outputs, inputs)
+print(readable,writeable,exceptional)
 
 server.accept()
