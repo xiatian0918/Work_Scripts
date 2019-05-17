@@ -8,7 +8,7 @@ shell = "/bin/sh /data/scripts/get_dhcp.sh"
 wintest = winrm.Session('http://192.168.0.85:5985/wsman',auth=('administrator','Toprs!@#123'))
 result = wintest.run_cmd("netsh dhcp server 192.168.0.85 scope 192.168.0.0 show clients")
 
-f = open("Z:\\system\\show_dhcp\\out.txt", "w")
+f = open("Z:\\system\\data\\out.txt", "w")
 print(result.std_out.decode().strip(),file=f)
 f.close()
 
