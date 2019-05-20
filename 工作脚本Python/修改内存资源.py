@@ -3,7 +3,7 @@
 # author: xiatian
 
 import paramiko
-#fsdfdad
+#fsdfd
 
 def shell_commond(hostip, state):
     # hostip = input("请输入要修改CPU的虚拟机名称:")
