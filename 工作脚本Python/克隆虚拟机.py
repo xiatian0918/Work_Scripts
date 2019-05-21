@@ -21,7 +21,7 @@ def sshclient_execmd(hostname, port, username, password, execmd):
     stdin, stdout, stderr = s.exec_command(execmd)
     stdin.write("Y")  # Generally speaking, the first connection, need a simple interaction.
 
-    print(stdout.read())
+    print(stdout.read().decode())
 
     s.close()
 
