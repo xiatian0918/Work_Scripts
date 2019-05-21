@@ -2,34 +2,40 @@
 #-*- coding:utf-8 -*-
 # author: xiatian
 
-import winrm
 import paramiko
-shell = "/bin/sh /data/scripts/get_dhcp.sh"
-wintest = winrm.Session('http://192.168.0.85:5985/wsman',auth=('administrator','Toprs!@#123'))
-result = wintest.run_cmd("netsh dhcp server 192.168.0.85 scope 192.168.0.0 show clients")
+#fsdfd
 
-f = open("Z:\\system\\data\\out.txt", "w")
-print(result.std_out.decode().strip(),file=f)
-f.close()
+def shell_commond(hostip, state):
+    # hostip = input("请输入要修改CPU的虚拟机名称:")
+    # state = input("请输入要修改的内存为(MB):")
+    shell = "/bin/sh /home/xiatian/vmware_api/mem.sh %s %s" % (hostip, state)
+    return shell
 
 def sshclient_execmd(hostname, port, username, password, execmd):
+    # paramiko.util.log_to_file("paramiko.log")
+
     s = paramiko.SSHClient()
     s.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
     s.connect(hostname=hostname, port=port, username=username, password=password)
     stdin, stdout, stderr = s.exec_command(execmd)
-    stdin.write("Y")
+    stdin.write("Y")  # Generally speaking, the first connection, need a simple interaction.
 
-    for i in range(1,9):
-        print(stdout.readline().strip())
+    print(stdout.read().decode())
+
     s.close()
 
-def main():
+
+def main(hostip, state):
     hostname = '192.168.0.62'
     port = 22
     username = 'root'
     password = 'Toprs!@#123'
+    shell = shell_commond(hostip, state)
     execmd = shell
+
     sshclient_execmd(hostname, port, username, password, execmd)
 
+
 if __name__ == "__main__":
-    main()
+    main('ceshi-4', 5300)

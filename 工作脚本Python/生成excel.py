@@ -1,20 +1,12 @@
-#!/usr/bin/env python
-#-*- coding:utf-8 -*-
-# author: xiatian
-
-
-import os
-#os.system("wget -P E:\自动化脚本文件\ http://192.168.0.62/shell/fio.test.sh")
-
-
 import xlwt
+
 #设置表格样式
 def set_style(name,height,bold=False):
     style = xlwt.XFStyle()
     font = xlwt.Font()
     font.name = name
     font.bold = bold
-    font.color_index = 6
+    font.color_index = 4
     font.height = height
     style.font = font
     return style
@@ -41,5 +33,3 @@ def write_excel():
 
 if __name__ == '__main__':
     write_excel()
-
-

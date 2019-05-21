@@ -2,12 +2,19 @@
 #-*- coding:utf-8 -*-
 # author: xiatian
 
-from 学习脚本 import module_test
 
-print(module_test.say_hello())
+#导入指定路径模块
 
-module_test.logger()
+def main():
+    from auto_scripts.学习脚本 import module_test
 
-from 学习脚本.module_test import name
+    print(module_test.say_hello())
 
-print(name)
+    module_test.logger()
+
+    from auto_scripts.学习脚本.module_test import name
+
+    print(name)
+
+if __name__ == '__main__':
+    main()
