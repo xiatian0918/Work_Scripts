@@ -1,7 +1,7 @@
 #!/usr/bin/env/python
 
 import paramiko
-
+'''2019-05-22 修改'''
 
 vc_temp = input("请输入要克隆的虚拟机模板：")
 vc_name_after = input("请输入克隆后的虚拟机名称为：")
