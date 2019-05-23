@@ -1,7 +1,7 @@
 #!/usr/bin/env/python
 
 import paramiko
-
+'''2019-05-22 修改'''
 
 vc_temp = input("请输入要克隆的虚拟机模板：")
 vc_name_after = input("请输入克隆后的虚拟机名称为：")
@@ -21,7 +21,7 @@ def sshclient_execmd(hostname, port, username, password, execmd):
     stdin, stdout, stderr = s.exec_command(execmd)
     stdin.write("Y")  # Generally speaking, the first connection, need a simple interaction.
 
-    print(stdout.read())
+    print(stdout.read().decode())
 
     s.close()
 
