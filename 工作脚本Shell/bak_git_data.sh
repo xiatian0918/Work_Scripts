@@ -2,7 +2,7 @@
 # time:2019-05-07
 # author:HotXia
 # this is about how go to bakup gitlab project data is scripts
-
+# 修改版
 
 # 拉取最新系统运维自动化脚本
 cd /mnt/system/gitlab_project_bakup/git_bakup/auto_scripts/ && git pull git@192.168.0.55:root/auto_scripts.git master
