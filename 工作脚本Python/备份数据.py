@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
 # author: xiatian
+# 时间：2019-06-04
 # 这个脚本是把保密检查出来的文件自动保存到共享文件系统中。
 
 import shutil
