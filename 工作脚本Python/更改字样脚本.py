@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
-# author: xiatian13132
+# author: xiatian13132dsfsdf
 #这个脚本可以过滤出保密检查工具中扫描出来的文档，包含合同与投标字样的涉密文件
 
 import paramiko
