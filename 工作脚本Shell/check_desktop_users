@@ -1,0 +1,18 @@
+#!/bin/sh
+# 时间：2019-06-25
+# 编写人：此脚本是获取windows server 2012系统下当前远程连接的用户有哪些
+
+[ -f "/mnt/monitor_data/centreon/show_user_status.txt" ] && rm -rf /mnt/monitor_data/centreon/show_user_status.txt
+
+
+ansible 192.168.0.85 -m win_shell -a 'query USER' >/tmp/1.txt
+
+lixianhu="李现虎"
+lijingjing="李晶晶"
+
+
+for i in `cat /tmp/1.txt |grep "Active"|awk '{print $1}'`;do
+	echo -n "外网虚拟机(192.168.0.85)当前连接的用户为: $i  "
+	echo ""
+done
+exit 0
