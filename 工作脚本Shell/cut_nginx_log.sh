@@ -1,17 +1,21 @@
 #!/bin/bash
-logdir="/var/log/nginx"
-yesterday=`date -d "yesterday" "+%Y%m%d"`
-mkdir -p $logdir/$yesterday
+ 
+LogPath=/data/log/nginx
+#BackupPath=/data/BackupLogs/
+Yesterday=`date -d "yesterday" +%Y%m%d`
+BackupPath=/data/BackupLogs/${Yesterday}
+#NginxPid=`cat /var/run/nginx.pid`
+NginxPid=`cat /usr/local/nginx/logs/nginx.pid`
+BackupSaveCycle=+5
+[ -d ${BackupPath} ] || mkdir -p ${BackupPath}
+ 
+cd $LogPath
+mv toprs_access.log $BackupPath\/toprs_access_$Yesterday.log
+ 
+kill -USR1 $NginxPid
+sleep 5
+cd $BackupPath
+gzip toprs_access_$Yesterday.log
+sleep 5
+find $BackupPath -mtime $BackupSaveCycle -exec rm {} \;
 
-cd $logdir
-for i in $(ls *.log);
-do
-    mv $i $i.$yesterday;
-done 
-
-for j in $(ls *.log.$yesterday);
-do
-     gzip $j; 
-done
-
-mv $logdir/*.log.$yesterday* $logdir/$yesterday > /dev/null 2>&1  #把文件 移动到目录下

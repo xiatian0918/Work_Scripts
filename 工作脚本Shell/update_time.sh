@@ -1,9 +1,9 @@
 #!/bin/sh
 
 
-ser_time=$(ssh 192.168.0.52 "date +%H:%M:%S")
+ser_time=$(date +'%Y-%m-%d')
 local_time=$(date +'%H:%M:%S')
 
-if [ $local_time != $ser_time ];then
-	date -s "$ser_time"
-fi
+final_time=$(echo "Set-Date '$ser_time $local_time'")
+
+ansible data -m win_shell -a "$final_time"

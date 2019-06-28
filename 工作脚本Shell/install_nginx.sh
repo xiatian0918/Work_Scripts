@@ -25,7 +25,6 @@ cd /data/package
 tar zxvf nginx-1.13.3.tar.gz
 cd nginx-1.13.3
 ./configure --prefix=/usr/local/nginx --with-http_ssl_module --with-http_realip_module --with-http_stub_status_module --with-http_flv_module --with-http_mp4_module --with-pcre=/data/package/pcre-8.33 --add-module=/usr/local/src/nginx-rtmp-module-master
-
 make && make install
 
 cd /etc/init.d && wget -N http://211.103.207.119:81/nginx/nginx && chmod +x nginx
@@ -34,5 +33,10 @@ cd /usr/local/nginx/conf/ && mv nginx.conf nginx.conf.bak && wget -N  http://211
 
 #service nginx start
 
-/usr/local/nginx/sbin/nginx
+#   /usr/local/nginx/sbin/nginx
 #   ps aux|grep nginx 
+
+
+
+
+
