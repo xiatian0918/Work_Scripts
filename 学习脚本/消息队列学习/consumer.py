@@ -4,9 +4,9 @@
 
 import pika
 
-credentials = pika.PlainCredentials('openstack', 'openstack')
+credentials = pika.PlainCredentials('toprs', 'toprs')
 connection = pika.BlockingConnection(pika.ConnectionParameters(
-    '192.168.56.11',5672,'/',credentials))
+    '192.168.0.58',5672,'/',credentials))
 channel = connection.channel()
 
 # You may ask why we declare the queue again ‒ we have already declared it in our previous code.

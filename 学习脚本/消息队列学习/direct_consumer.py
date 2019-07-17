@@ -5,16 +5,17 @@
 import pika
 import sys
 
-credentials = pika.PlainCredentials('openstack', 'openstack')
+credentials = pika.PlainCredentials('toprs', 'toprs')
 connection = pika.BlockingConnection(pika.ConnectionParameters(
-    '192.168.56.11',5672,'/',credentials))
+    '192.168.0.58',5672,'/',credentials))
 
 channel = connection.channel()
 
-channel.exchange_declare('direct_logs',
+channel.exchange_declare(
+                        'direct_logs',
                          'direct')
 
-result = channel.queue_declare(exclusive=True)
+result = channel.queue_declare(queue='hello2',exclusive=True)
 queue_name = result.method.queue
 
 severities = sys.argv[1:]
