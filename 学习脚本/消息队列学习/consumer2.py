@@ -3,6 +3,9 @@
 # author: xiatian
 
 import pika
+# import _md5
+# value = _md5.md5('ad'.encode())
+# print(value)
 
 credentials = pika.PlainCredentials('openstack', 'openstack')
 connection = pika.BlockingConnection(pika.ConnectionParameters(
