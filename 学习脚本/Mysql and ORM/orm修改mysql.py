@@ -7,6 +7,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy import func
 
 engine = create_engine("mysql+pymysql://root:xiatian123456@192.168.56.11/oldboy",
                        encoding='utf-8')   # echo=true 就是打印所有的信息
@@ -34,8 +35,17 @@ Session = Session_class()  # 生成session实例
 # data.password = "Shut Happens"
 
 # 回滚
-fake_user = User(name='Rain', password='12345')
-Session.add(fake_user)
-print(Session.query(User).filter(User.name.in_(['Jack','rain'])).all() )
-Session.rollback()
+# fake_user = User(name='Rain', password='12345')
+# Session.add(fake_user)
+# print(Session.query(User).filter(User.name.in_(['Jack','rain'])).all() )
+# Session.rollback()
 #Session.commit()
+
+# 统计
+# fake_uery(Ususer = User(name='Rain', password='12345')
+# # Session.add(fake_user)
+# Session.query(User).filter(User.name.in_(['Jack','rain'])).count()
+
+# 分组
+#print(Session.query(func.count(User.name),User.name),group_by(User.name).all() )
+print(Session.query(func.count(User.name),User.name).group_by(User.name).all() )
