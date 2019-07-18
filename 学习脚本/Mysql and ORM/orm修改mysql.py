@@ -49,3 +49,8 @@ Session = Session_class()  # 生成session实例
 # 分组
 #print(Session.query(func.count(User.name),User.name).group_by(User.name).all() )
 # print(Session.query(func.count(User.name),User.name).group_by(User.name).all() )
+
+# 删除
+# data= Session.query(Users).filter(Users.id > 2).delete()
+# Session.commit()
+
