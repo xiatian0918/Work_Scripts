@@ -237,9 +237,8 @@
     
 
     
-Python脚本执行方式
     	
-python版本
+Python版本
     
     [root@monitor-centreon scripts]# python -V
     Python 2.7.5
