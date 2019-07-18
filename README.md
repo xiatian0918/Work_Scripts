@@ -3,13 +3,18 @@
 说明：其中包括Shell语言脚本和Python语言脚本，还有学习测试的一些脚本。
     
     
- 依赖系统：
+    
+依赖系统：
  
     	
-    	[root@monitor-centreon ~]# cat /etc/redhat-release 
-    	CentOS Linux release 7.4.1708 (Core) 
+    [root@monitor-centreon ~]# cat /etc/redhat-release 
+    CentOS Linux release 7.4.1708 (Core) 
     	
         
+        
+脚本存放目录：
+
+
 	[root@toprs-jumper gitlab]# tree -N -d
 		.
 		├── 工作脚本Python
@@ -17,6 +22,10 @@
 		└── 学习脚本
 
 		3 directories
+		
+		
+脚本存放文件名称：
+
 	
 	[root@toprs-jumper gitlab]# tree -N -f
 		.
@@ -226,16 +235,15 @@
 		3 directories, 199 files
    
     
-	=====================
+
     
-    	Python脚本执行方式
+Python脚本执行方式
     	
-    	Python版本
+python版本
     
-            [root@monitor-centreon scripts]# python -V
-            Python 2.7.5
+    [root@monitor-centreon scripts]# python -V
+    Python 2.7.5
     
-            root@toprs-virtual-host:~# python -V
-            Python 3.6.7
+    root@toprs-virtual-host:~# python -V
+    Python 3.6.7
     
-            [root@monitor-centreon scripts]# python vm_hard_info.py
