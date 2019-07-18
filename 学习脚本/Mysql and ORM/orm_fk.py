@@ -30,6 +30,8 @@ class StudyRecord(Base):
     status = Column(String(32),nullable=False)
     stu_id = Column(Integer,ForeignKey("student.id"))
 
+    #study_obj = query(id=1)
+    #student = query(Student).filter(Student.id == stu_obj.stu_id).first()
     student = relationship("Student",backref="my_study_record")
 
     def __repr__(self):
