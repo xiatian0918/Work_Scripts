@@ -37,7 +37,7 @@ class Author(Base):
     def __repr__(self):
         return self.name
 
-engine = create_engine("mysql+pymysql://root:xiatian123456@192.168.56.11/oldboydb",
+engine = create_engine("mysql+pymysql://root:xiatian123456@192.168.56.11/oldboydb?charset=utf8",
                        encoding='utf-8')
 
 Base.metadata.create_all(engine)
