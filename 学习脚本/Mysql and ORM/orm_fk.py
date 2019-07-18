@@ -6,7 +6,7 @@ import sqlalchemy
 
 from sqlalchemy import create_engine,Column, Integer, String, func, DATE,ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker,relationship
 
 
 engine = create_engine("mysql+pymysql://root:xiatian123456@192.168.56.11/oldboydb",
@@ -30,8 +30,10 @@ class StudyRecord(Base):
     status = Column(String(32),nullable=False)
     stu_id = Column(Integer,ForeignKey("student.id"))
 
+    student = relationship("Student",backref="my_study_record")
+
     def __repr__(self):
-        return "<%s  name:%s>" % (self.id, self.day)
+        return "<%s day:%s status:%s>" % (self.student.name, self.day, self.status)
 
 Base.metadata.create_all(engine)  # 创建表结构
 
@@ -51,7 +53,7 @@ session = Session_class()  # 生成session实例
 # session.add_all([s1,s2,s3,s4,study_obj1,study_obj2,study_obj3,study_obj4])
 
 stu_obj = session.query(Student).filter(Student.name=="alex").first()
-print(stu_obj.my_classes)
+print(stu_obj.my_study_record)
 session.commit()
 
 
