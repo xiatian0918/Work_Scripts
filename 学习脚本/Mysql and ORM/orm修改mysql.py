@@ -47,5 +47,5 @@ Session = Session_class()  # 生成session实例
 # Session.query(User).filter(User.name.in_(['Jack','rain'])).count()
 
 # 分组
-#print(Session.query(func.count(User.name),User.name),group_by(User.name).all() )
-print(Session.query(func.count(User.name),User.name).group_by(User.name).all() )
+#print(Session.query(func.count(User.name),User.name).group_by(User.name).all() )
+# print(Session.query(func.count(User.name),User.name).group_by(User.name).all() )
