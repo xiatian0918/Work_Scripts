@@ -11,14 +11,15 @@
     	CentOS Linux release 7.4.1708 (Core) 
     	
         
-			[root@toprs-jumper gitlab]# tree -N -d
+	[root@toprs-jumper gitlab]# tree -N -d
 		.
 		├── 工作脚本Python
 		├── 工作脚本Shell
 		└── 学习脚本
 
 		3 directories
-		[root@toprs-jumper gitlab]# tree -N -f
+	
+	[root@toprs-jumper gitlab]# tree -N -f
 		.
 		├── ./README.md
 		├── ./工作脚本Python
