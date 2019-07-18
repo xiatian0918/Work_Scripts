@@ -1,10 +1,10 @@
-运维自动化脚本
+#运维自动化脚本#
         
 说明：其中包括Shell语言脚本和Python语言脚本，还有学习测试的一些脚本。
     
     
     
-依赖系统：
+#依赖系统：
  
 ```    	
     [root@monitor-centreon ~]# cat /etc/redhat-release 
