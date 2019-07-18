@@ -51,7 +51,7 @@ session = Session_class()  # 生成session实例
 # session.add_all([s1,s2,s3,s4,study_obj1,study_obj2,study_obj3,study_obj4])
 
 stu_obj = session.query(Student).filter(Student.name=="alex").first()
-print(stu_obj)
+print(stu_obj.my_classes)
 session.commit()
 
 
