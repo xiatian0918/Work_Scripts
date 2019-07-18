@@ -10,6 +10,8 @@
     [root@monitor-centreon ~]# cat /etc/redhat-release 
     CentOS Linux release 7.4.1708 (Core) 
     	
+
+
         
         
 脚本存放目录：
@@ -23,6 +25,8 @@
 
 		3 directories
 		
+	
+	
 		
 脚本存放文件名称：
 
@@ -236,6 +240,8 @@
    
     
 
+    
+    
     
     	
 Python版本
