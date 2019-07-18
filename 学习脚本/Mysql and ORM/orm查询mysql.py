@@ -20,12 +20,19 @@ class User(Base):
     password = Column(String(64))
 
     def __repr__(self):
-        return ""
+        return "<%s  name:%s>" %(self.id,self.name)
 
 Base.metadata.create_all(engine)  # 创建表结构
 
 Session_class = sessionmaker(bind=engine)  # 创建与数据库的会话session class ,注意,这里返回给session的是个class,不是实例
 Session = Session_class()  # 生成session实例
 
-data= Session.query(User).filter_by(name="alex").all()
-print(data[0].name,data[0].password)
+#data= Session.query(User).filter_by(name="alex").all()
+# data= Session.query(User).filter_by().all()
+# data= Session.query(User).filter_by().first()
+# data= Session.query(User).filter(User.id>1).all() #条件查询
+# data= Session.query(User).filter_by(id=1).all()
+# data= Session.query(User).filter(User.id==1).all()
+data= Session.query(User).filter(User.id>1).filter(User.id <3).first()
+print(data)
+
