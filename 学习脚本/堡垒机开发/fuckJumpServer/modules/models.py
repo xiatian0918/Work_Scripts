@@ -11,12 +11,18 @@ from sqlalchemy_utils import ChoiceType,PasswordType
 
 Base = declarative_base()
 
+host_m2m_remoteuser = Table('host_m2m_remoteuser', Base.metadata,
+                        Column('host_id',Integer,ForeignKey('host.id')),
+                        Column('remoteuser_id',Integer,ForeignKey('remoteuser.id')),
+                        )
+
 class Host(Base):
     __tablename__ = 'host'
     id = Column(Integer,primary_key=True)
     hostname = Column(String(64),unique=True)
     ip = Column(String(64),unique=True)
     port = Column(Integer,default=22)
+    remote_users = relationship('RemoteUser',secondary=host_m2m_remoteuser,backref='hosts')
 
     def __repr__(self):
         return self.hostname
