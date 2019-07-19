@@ -45,7 +45,13 @@ class RemoteUser(Base):
         return self.username
 
 class UserProfile(Base):
-    pass
+    __tablename__ = 'user_profile'
+    id = Column(Integer, primary_key=True)
+    username = Column(String(32),unique=True)
+    password = Column(String(128))
+
+    def __repr__(self):
+        return self.username
 
 class Auditlog(Base):
     pass
