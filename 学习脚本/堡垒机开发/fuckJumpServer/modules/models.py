@@ -5,7 +5,7 @@
 from sqlalchemy import Table, Column, Enum,Integer,String,DATE, ForeignKey,engine
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine,UniqueConstraint
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy_utils import ChoiceType,PasswordType
 
@@ -39,6 +39,7 @@ class RemoteUser(Base):
     auth_type = Column(ChoiceType(AuthTypes))
     username = Column(String(32))
     password = Column(String(128))
+    __table_args__ = (UniqueConstraint('auth_type', 'username', 'password', name='_user_passwd_uc'),)
 
     def __repr__(self):
         return self.username
