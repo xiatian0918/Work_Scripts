@@ -11,9 +11,9 @@ from sqlalchemy_utils import ChoiceType,PasswordType
 
 Base = declarative_base()
 
-host_m2m_remoteuser = Table('host_m2m_remoteuser', Base.metadata,
-                        Column('host_id',Integer,ForeignKey('host.id')),
-                        Column('remoteuser_id',Integer,ForeignKey('remoteuser.id')),
+user_m2m_bindhost = Table('user_m2m_bindhost', Base.metadata,
+                        Column('userprofile_id',Integer,ForeignKey('user_profile.id')),
+                        Column('bindhost_id',Integer,ForeignKey('bind_host.id')),
                         )
 
 class Host(Base):
@@ -22,7 +22,7 @@ class Host(Base):
     hostname = Column(String(64),unique=True)
     ip = Column(String(64),unique=True)
     port = Column(Integer,default=22)
-    remote_users = relationship('RemoteUser',secondary=host_m2m_remoteuser,backref='hosts')
+#    remote_users = relationship('RemoteUser',secondary=host_m2m_remoteuser,backref='hosts')
 
     def __repr__(self):
         return self.hostname
@@ -45,16 +45,37 @@ class RemoteUser(Base):
     auth_type = Column(ChoiceType(AuthTypes))
     username = Column(String(32))
     password = Column(String(128))
-    __table_args__ = (UniqueConstraint('auth_type', 'username', 'password', name='_user_passwd_uc'),)
+#    __table_args__ = (UniqueConstraint('auth_type', 'username', 'password', name='_user_passwd_uc'),)
 
     def __repr__(self):
         return self.username
+
+class BindHost(Base):
+    '''
+    192.168.1.11 web bj_group
+    192.168.1.11 mysql sh_group
+    '''
+    __tablename__ = "bind_host"
+    __table_args__ = (UniqueConstraint('host_id','group_id','remoteuser_id',name='_host_group_remoteuser_uc'),)
+    id = Column(Integer,primary_key=True)
+    host_id = Column(Integer,ForeignKey('host.id'))
+    group_id = Column(Integer,ForeignKey('group.id'))
+    remoteuser_id = Column(Integer,ForeignKey('remote_user.id'))
+
+    host = relationship("Host",backref="bind_hosts")
+    host_group = relationship("HostGroup", backref="bind_hosts")
+    remote_user = relationship("RemoteUser", backref="bind_hosts")
+    def __repr__(self):
+        return "<%s -- %s -- %s>" %(self.host.ip,
+                                    self.remote_user.username,
+                                    self.HostGroup.name)
 
 class UserProfile(Base):
     __tablename__ = 'user_profile'
     id = Column(Integer, primary_key=True)
     username = Column(String(32),unique=True)
     password = Column(String(128))
+    bind_hosts = relationship("BindHost",secondary='user_m2m_bindhost',backref="user_profiles")
 
     def __repr__(self):
         return self.username
