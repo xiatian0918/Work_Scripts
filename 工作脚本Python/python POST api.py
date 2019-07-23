@@ -1,10 +1,26 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
 # author: xiatian
-'''如何检查mongo主从关系端口脚本'''
 
-import paramiko,os
-# shell = "/bin/sh /data/scripts/check_mongo_rep.sh"
+
+import requests, sys, paramiko
+from os import listdir
+from os.path import isfile, join
+
+onlyfiles = [ f for f in listdir('C:\\Users\\user\\Desktop\\api\\images\\') \
+              if isfile(join('C:\\Users\\user\\Desktop\\api\\images\\',f)) ]
+
+for dir_name in onlyfiles:
+    base_name = "C:\\Users\\user\\Desktop\\api\\images\\%s" %dir_name
+    url = 'http://192.168.0.59/upload'
+    files = {'file': open('%s' %base_name, 'rb')}
+    response = requests.post(url, files=files)
+    print("上传到共享存储中的图片为：%s" %dir_name,"" ,"上传状态为：%s" %response)
+
+
+
+#
+# shell = "/bin/sh /data/scripts/modify_share_directory.sh %s" %dir_name
 # def sshclient_execmd(hostname, port, username, password, execmd):
 #     s = paramiko.SSHClient()
 #     s.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -24,12 +40,3 @@ import paramiko,os
 #
 # if __name__ == "__main__":
 #     main()
-
-from urllib.parse import quote
-import  string
-
-url = r"http://192.168.0.67:8080/development/测试001/projectname_test/Images/20060.tif"
-url = quote(url, safe = string.printable)
-
-a = os.system('wget %s' %url )
-print(a)
