@@ -4,9 +4,9 @@ bind1:
   hostname: ubuntu test
   remote_users:
     - user2:
-      username: alex
+      username: root
       auth_type: ssh-passwd
-      password: alex3714
+      password: xiatian123456
   groups:
     - test group
   #user_profiles:
