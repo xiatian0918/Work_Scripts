@@ -16,6 +16,16 @@ user_m2m_bindhost = Table('user_m2m_bindhost', Base.metadata,
                         Column('bindhost_id',Integer,ForeignKey('bind_host.id')),
                         )
 
+bindhost_m2m_hostgroup = Table('bindhost_m2m_hostgroup', Base.metadata,
+                        Column('bindhost_id',Integer,ForeignKey('bind_host.id')),
+                        Column('hostgroup_id',Integer,ForeignKey('host_group.id')),
+                        )
+
+user_m2m_hostgroup = Table('userprofile_m2m_hostgroup', Base.metadata,
+                        Column('userprofile_id',Integer,ForeignKey('user_profile.id')),
+                        Column('hostgroup_id',Integer,ForeignKey('host_group.id')),
+                        )
+
 class Host(Base):
     __tablename__ = 'host'
     id = Column(Integer,primary_key=True)
@@ -31,6 +41,7 @@ class HostGroup(Base):
     __tablename__ = 'host_group'
     id = Column(Integer, primary_key=True)
     name = Column(String(64), unique=True)
+    bind_hosts = relationship("BindHost",secondary="bindhost_m2m_hostgroup",backref="host_groups")
 
     def __repr__(self):
         return self.name
@@ -59,11 +70,11 @@ class BindHost(Base):
     __table_args__ = (UniqueConstraint('host_id','group_id','remoteuser_id',name='_host_group_remoteuser_uc'),)
     id = Column(Integer,primary_key=True)
     host_id = Column(Integer,ForeignKey('host.id'))
-    group_id = Column(Integer,ForeignKey('group.id'))
+    #group_id = Column(Integer,ForeignKey('group.id'))
     remoteuser_id = Column(Integer,ForeignKey('remote_user.id'))
 
     host = relationship("Host",backref="bind_hosts")
-    host_group = relationship("HostGroup", backref="bind_hosts")
+    #host_group = relationship("HostGroup", backref="bind_hosts")
     remote_user = relationship("RemoteUser", backref="bind_hosts")
     def __repr__(self):
         return "<%s -- %s -- %s>" %(self.host.ip,
@@ -76,9 +87,15 @@ class UserProfile(Base):
     username = Column(String(32),unique=True)
     password = Column(String(128))
     bind_hosts = relationship("BindHost",secondary='user_m2m_bindhost',backref="user_profiles")
+    host_groups = relationship("HostGroup",secondary="user_m2m_hostgroup",backref="user_profiles")
 
     def __repr__(self):
         return self.username
 
 class Auditlog(Base):
     pass
+
+if __name__ == "__main__":
+    engine = create_engine("mysql+pymysql://root:xiatian123456@192.168.56.11/oldboydb?charset=utf8",
+                           encoding='utf-8')
+    Base.metadata.create_all(engine)

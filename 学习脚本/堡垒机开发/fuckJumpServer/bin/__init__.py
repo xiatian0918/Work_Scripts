@@ -1,3 +1,1 @@
-#!/usr/bin/env python
-#-*- coding:utf-8 -*-
-# author: xiatian
+__author__ = "Alex Li"
