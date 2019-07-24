@@ -9,14 +9,17 @@ import socket
 def handle_request(client):
     buf = client.recv(1024)
     client.send(bytes("HTTP/1.1 200 OK\r\n\r\n",encoding='utf-8'))
-    client.send(bytes("Hello,Seven",encoding='utf-8'))
+#    client.send(bytes("<h1 style='background-color:red;'>Hello,Seven<h1>",encoding='utf-8'))
+    f = open('index','rb')
+    data = f.read()
+    f.close()
     # f = open('index.html', 'r', encoding='utf-8')
     # data = f.read()
     # f.close()
     # import time
     # r = str(time.time())
     # data.replace('@@@@@',r)
-    # client.send(data)
+    client.send(data)
 def main():
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.bind(('localhost', 8000))
