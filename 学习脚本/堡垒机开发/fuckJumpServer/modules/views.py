@@ -1,5 +1,6 @@
 __author__ = "Alex Li"
 
+
 from models import models
 from conf import settings
 from modules.utils import print_err,yaml_parser
@@ -9,7 +10,6 @@ def syncdb(argvs):
     engine = models.create_engine(settings.ConnParams,
                           echo=True )
     models.Base.metadata.create_all(engine) #创建所有表结构
-
 
 
 def create_hosts(argvs):
