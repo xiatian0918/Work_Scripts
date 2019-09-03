@@ -3,15 +3,11 @@
 
 now_time=$(date +"%Y%m%d")
 
-if [ -f /var/log/messages ];then
-	error_line=$(/usr/bin/cat /var/log/messages|grep -i error|wc -l)
-	if [ ${error_line} -gt 0 ];then
-		/usr/bin/cat /var/log/messages|grep -i error >/tmp/ceph_`ifconfig|egrep "bond0|inet"|grep 192|awk '{print $2}'|head -1`_error_messages.log
-		scp -r /tmp/ceph_`ifconfig|egrep "bond0|inet"|grep 192|awk '{print $2}'|head -1`_error_messages.log root@192.168.0.62:/mnt/system/error_message_log/
-	else
-		exit 6
-	fi
-else
-	exit 6
-fi
+#ip_addr=('192.168.0.25' '192.168.0.26' '192.168.0.27' '192.168.0.28')
 
+for i in 192.168.0.{25..28};do echo $i;ssh $i "cat /var/log/messages|grep -i error";echo "";done >/mnt/system/error_message_log/error.log
+
+line=$(cat /mnt/system/error_message_log/error.log |egrep -v "192.168|^$"|wc -l)
+if [ $line -ne 0 ];then
+	echo "当前CEPH集群服务器Messages日志中出现错误信息"|mail -s "CEPH集群服务器告警" "2831315100@qq.com,18810434724@163.com"
+fi

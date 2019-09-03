@@ -1,7 +1,4 @@
 #!/bin/bash
-
-rpm -ivh https://mirrors.aliyun.com/epel/epel-release-latest-7.noarch.rpm
-
 cat <<EOF
 -------------num 1 install base package---------------------- 
 EOF
@@ -14,8 +11,10 @@ cat <<EOF
 EOF
 sed -i '7 c SELINUX=disabled' /etc/selinux/config
 setenforce 0
-systemctl stop firewalld
-systemctl disable firewalld
+firewall=`cat /etc/redhat-release |awk '{print $4}'|awk -F "." '{print $1}'`
+#ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime || {
+service iptables stop
+chkconfig iptables off
 
 cat <<EOF
 ------------num 3 install service--------------------------
@@ -26,9 +25,8 @@ yum update -y openssh
 yum update -y bash
 echo " export HISTTIMEFORMAT=\" %Y-%m-%d  %H:%M:%S  \`whoami\`  \" ">>/root/.bashrc
 source /root/.bashrc
-\. /root/.bashrc
 [ ! -f /usr/sbin/ntpdate ] && yum install ntpdate -y
-echo "*/5 * * * * /usr/sbin/ntpdate time1.aliyun.com >/dev/null 2>&1" >>/var/spool/cron/root
+echo "*/5 * * * * /usr/sbin/ntpdate time.windows.com >/dev/null 2>&1" >>/var/spool/cron/root
 
 cat <<EOF
 ------------num 4 install saltstack client------------------------

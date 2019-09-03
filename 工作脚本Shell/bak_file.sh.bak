@@ -24,12 +24,4 @@ do
 done
 
 cat /tmp/"$1"_保密结果检查.txt|awk -F\, '{print $4,$5}'|sed 's#"##g'|awk '{$NF="";print}' >/mnt/monitor_data/bak_bm_file/"$1"_结果.txt
-riqi=$(cat /mnt/monitor_data/bak_bm_file/"$1"_结果.txt |egrep "2019-|2018-|2017-"|awk '{print $NF}'|wc -l)
-if [ $riqi -ne 0 ];then
-	cat /mnt/monitor_data/bak_bm_file/"$1"_结果.txt|egrep "2019-|2018-|2017-"|awk '{$NF="";print}' >>/tmp/"$1"_grep.txt
-fi
-
-cat  /tmp/"$1"_grep.txt >>/mnt/monitor_data/bak_bm_file/"$1"_结果.txt
-
-rm -rf /tmp/"$1"_grep.txt
 

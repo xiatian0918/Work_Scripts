@@ -11,9 +11,6 @@ def copy_file(linux_path, window_path):
         for root, dirs, files in os.walk(r"E:\hehe"):  # 目录
             for f in files:
                 os.remove(os.path.join(root, f))  # 文件删除
-    else: 
-        os.mkdir(r"E:\hehe")
-
     # 目录复制
     t1 = datetime.datetime.now()
     os.system("xcopy /s %s %s" % (linux_path, window_path))
