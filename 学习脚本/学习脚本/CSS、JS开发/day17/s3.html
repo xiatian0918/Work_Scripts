@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			.header{
+				background-color: #000000;
+				color: wheat;
+				
+			}
+			
+			.content{
+				min-height: 50px;
+				
+			}
+			
+			.hide{
+				display: none;
+				
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div style="height: 400px;width: 200px; border: 1px solid #DDDDDD;">
+			
+			<div class="item">
+				<div class="header">标题一</div>
+				<div class="content">内容</div>			
+			</div>
+			
+			<div class="item">
+				<div class="header">标题二</div>
+				<div class="content hide">内容</div>
+			</div>
+		<!--	$(this).parent().siblings().find('.content')-->
+			
+			<div class="item">
+				<div class="header">标题三</div>
+				<div class="content hide">内容</div>
+			</div>
+			
+		</div>
+		
+		<script src="jquery-1.12.4.js"></script>
+		
+		<script>
+			$('.header').click(function(){
+				// 当前点击的标签   $(this)
+				// 获取某个标签的下一个标签
+				// 获取某个标签的父标签
+				// 获取所有的兄弟标签
+				// 添加样式和移除样式
+				// $('#i1').addClass('hide')
+				// $('#i1').remove('hide')
+  				// var v = $("this + div");
+  				// console.log(v);
+  				
+  				// $("dsfgfdgfd,sdffdsdf")
+  				//筛选器
+  				
+  		/*      $(this).next()    		下一个
+  				$(this).prev() 			上一个
+  				$(this).parent()		父亲
+  				$(this).children()  	孩子
+  				$('#i1').siblings() 	兄弟
+  				$('#i1').find('#i1') 	子子孙孙
+  		*/
+
+  		/*
+  				$('#i1').addClass(...)
+				$('#i1').removeClass(...)
+  		*/
+
+  		// 链式编程
+		// $(...).click
+  				
+//  				$(this).next().removeClass('hide');
+//  				$(this).parent().siblings().find('.content').addClass('hide');
+
+				var v = $(this).next().removeClass('hide').parent();
+				console.log(v);
+  				
+  				
+  				
+				
+			})
+		</script>
+	</body>
+</html>

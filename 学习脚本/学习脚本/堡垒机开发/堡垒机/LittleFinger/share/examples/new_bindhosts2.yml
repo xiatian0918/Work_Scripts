@@ -1,0 +1,13 @@
+
+
+bind1:
+  hostname: ubuntu test
+  remote_users:
+    - user2:
+      username: root
+      auth_type: ssh-passwd
+      password: xiatian123456
+  groups:
+    - test group
+  #user_profiles:
+  #  - alex

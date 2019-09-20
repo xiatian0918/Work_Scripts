@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form id="f1" action="s5.html" method="POST">
+        <input type="text" />
+        <input type="submit" value="提交" />
+    </form>
+
+    <script src="jquery-1.12.4.js"></script>
+
+    <script>
+        $(':submit').click(function () {
+
+            $('#f1').find('input[type="text"],input[type="password"]').each(function () {
+                var v = $(this).val();
+                console.log(1);
+//                if(v.length <= 0){
+//                    return false;
+//                }
+            })
+
+//            var v = $(this).prev().val()
+//            if (v.length >0){
+//                return true;
+//            }else {
+//                alert('请输入内容')
+//                return false;
+//            }
+
+            console.log(111111);
+        })
+
+    </script>
+</body>
+</html>

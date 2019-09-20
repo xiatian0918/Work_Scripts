@@ -1,0 +1,13 @@
+
+
+ubuntu test:
+  ip: 192.168.56.11
+  port: 22
+
+server1:
+  ip_addr: 192.168.56.12
+  port: 30000
+
+server2:
+  ip: 192.168.56.12
+
