@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
-# author: xiatian
+# author: xiatiansd
 
 import pika
 # import _md5
