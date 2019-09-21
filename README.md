@@ -102,6 +102,5 @@ Python版本
 		│   ├── ./工作脚本Shell/保密结果检查.sh
 		│   ├── ./工作脚本Shell/更改字样脚本.py
 		│   ├── ./工作脚本Shell/获取Vcenter网络信息.sh
-		│   ├── ./工作脚本Shell/获取单个网络接口流量示例.sh
 		3 directories, 199 files
 
