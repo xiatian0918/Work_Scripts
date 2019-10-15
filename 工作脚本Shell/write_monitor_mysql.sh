@@ -29,21 +29,21 @@ do
 	read_value=$(python /data/scripts/monitor_data/remote_io.py "$ip_address"|awk -F\( '{print $2}'|cut -d',' -f3|cut -d '=' -f2)
 	read_time=$(python /data/scripts/monitor_data/remote_io.py "$ip_address"|awk -F\( '{print $2}'|cut -d',' -f5|cut -d'=' -f2)
 	read_num=$(echo "scale=2;$read_value / $read_time / 1024 / 1024"|bc| awk '{printf "%.2f", $0}')
-	read_io="$read_num m/s"
+	read_io="$read_num M/S"
 
 
 	#写入写IO值
 	write_value=$(python /data/scripts/monitor_data/remote_io.py "$ip_address"|awk -F\( '{print $2}'|cut -d',' -f4|cut -d'=' -f2)
 	write_time=$(python /data/scripts/monitor_data/remote_io.py "$ip_address"|awk -F\( '{print $2}'|cut -d',' -f6|cut -d'=' -f2|awk -F\) '{print $1}')
 	write_num=$(echo "scale=2;$write_value / $write_time / 1024 / 1024"|bc| awk '{printf "%.2f", $0}')
-	write_io="$write_num m/s"
+	write_io="$write_num M/S"
 
 
 
 	#接收带宽
 	receive_band=$(python /data/scripts/monitor_data/remote_daikuan.py "$ip_address"|egrep "^Bytes"|awk '{print $2}')
 	receive_value=$(echo "scale=2;$receive_band / 1024 / 1024"|bc| awk '{printf "%.2f", $0}')
-	receive_num="$receive_value m/s"
+	receive_num="$receive_value M"
 
 
 	#发送带宽
@@ -51,8 +51,12 @@ do
 	echo $send_band >>/tmp/send_band.txt
 	dos2unix /tmp/send_band.txt &>/dev/null
 	for s in `cat /tmp/send_band.txt`;do send_value=$(echo "scale=2;$s / 1024 / 1024"|bc| awk '{printf "%.2f", $0}');done
-	send_num="$send_value m/s"
+	send_num="$send_value M"
+
+
+	#写入MySQL表中的操作命令
 #	mysql_vm_name="INSERT tb_monitor_vm(vm_name,cpu_use,memory,memory_use,write_io,read_io,bandwidth_in,bandwidth_out) \
+
 	mysql_vm_name="INSERT tb_monitor_vm(vm_name,cpu_use,memory_use,write_io,read_io,bandwidth_in,bandwidth_out) \
 	VALUES('$vm_name','$cpu_info','$mem_use','$write_io','$read_io','$receive_num','$send_num');"
 	mysql -h192.168.0.53 -uroot -p123456789 toprs -e "${mysql_vm_name}"
