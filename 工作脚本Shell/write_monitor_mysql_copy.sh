@@ -67,7 +67,7 @@ done
 #比较数据表
 for a1 in `mysql -h192.168.0.53 -uroot -p123456789 toprs -e 'select vm_name from tb_monitor_vm_copy;'|egrep "^ceshi"`
 do
-#比较新表有旧表没有
+	#比较新表有旧表没有
         n1=$(mysql -h192.168.0.53 -uroot -p123456789 toprs -e "select * from tb_monitor_vm where vm_name='$a1';"|wc -l)
         b1=$(mysql -h192.168.0.53 -uroot -p123456789 toprs -e "select cpu_use from tb_monitor_vm_copy where vm_name='$a1';"|tail -1)
         c1=$(mysql -h192.168.0.53 -uroot -p123456789 toprs -e "select memory_use from tb_monitor_vm_copy where vm_name='$a1';"|tail -1)
@@ -75,11 +75,22 @@ do
         e1=$(mysql -h192.168.0.53 -uroot -p123456789 toprs -e "select read_io from tb_monitor_vm_copy where vm_name='$a1';"|tail -1)
         f1=$(mysql -h192.168.0.53 -uroot -p123456789 toprs -e "select bandwidth_in from tb_monitor_vm_copy where vm_name='$a1';"|tail -1)
         g1=$(mysql -h192.168.0.53 -uroot -p123456789 toprs -e "select bandwidth_out from tb_monitor_vm_copy where vm_name='$a1';"|tail -1)
+	j1=$(mysql -h192.168.0.53 -uroot -p123456789 toprs -e "select memory_use from tb_monitor_vm where vm_name='ceshi-b3';"|tail -1)
+	m1=$(mysql -h192.168.0.53 -uroot -p123456789 toprs -e "select write_io from tb_monitor_vm where vm_name='ceshi-b3';"|tail -1)
         [ $n1 -ne 2 ] && {
                 h1="INSERT tb_monitor_vm(vm_name,cpu_use,memory_use,write_io,read_io,bandwidth_in,bandwidth_out) \
                 VALUES('$a1','$b1','$c1','$d1','$e1','$f1','$g1');"
                 mysql -h192.168.0.53 -uroot -p123456789 toprs -e "$h1"
         }
+
+	#比较新创建的虚拟机中,新表与旧表都有,旧表中信息为空
+	[ -z $j1 ] && {
+		k1="DELETE FROM  tb_monitor_vm WHERE vm_name='$a1';"
+		u1="INSERT tb_monitor_vm(vm_name,cpu_use,memory_use,write_io,read_io,bandwidth_in,bandwidth_out) \
+                VALUES('$a1','$b1','$c1','$d1','$e1','$f1','$g1');"
+                mysql -h192.168.0.53 -uroot -p123456789 toprs -e "$k1"	
+                mysql -h192.168.0.53 -uroot -p123456789 toprs -e "$u1"	
+	}
 
 done
 
