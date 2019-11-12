@@ -7,12 +7,21 @@
 
 ansible 192.168.0.85 -m win_shell -a 'query USER' >/tmp/1.txt
 
+administrator="夏天"
 lixianhu="李现虎"
 lijingjing="李晶晶"
+qiyanqing="齐燕青"
 
 
 for i in `cat /tmp/1.txt |grep "Active"|awk '{print $1}'`;do
-	echo -n "外网虚拟机(192.168.0.85)当前连接的用户为: $i  "
-	echo ""
+        if [ $i == "administrator" ];then
+		echo -e "外网虚拟机(192.168.0.85)当前连接的用户为:\033[32m $administrator  \033[0m"
+        elif [ $i == "lixianhu" ];then
+		echo -e "外网虚拟机(192.168.0.85)当前连接的用户为:\033[32m $lixianhu  \033[0m"
+        elif [ $i == "lijingjing" ];then
+		echo -e "外网虚拟机(192.168.0.85)当前连接的用户为:\033[32m $lijingjing  \033[0m"
+        elif [ $i == "qiyanqing" ];then
+		echo -e "外网虚拟机(192.168.0.85)当前连接的用户为:\033[32m $qiyanqing  \033[0m"
+        fi
 done
 exit 0

@@ -2,8 +2,8 @@
 #install rabitmq
 #author:xiatian
 
-yum install erlang -y
-wget http://www.rabbitmq.com/releases/rabbitmq-server/v3.6.6/rabbitmq-server-3.6.6-1.el7.noarch.rpm
+yum install erlang  -y
+wget http://192.168.0.62/tools/rabbitmq-server-3.6.6-1.el7.noarch.rpm
 yum install rabbitmq-server-3.6.6-1.el7.noarch.rpm  -y
 service rabbitmq-server start
 service rabbitmq-server status
